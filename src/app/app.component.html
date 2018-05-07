@@ -1,7 +1,17 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary fixed-top">
   <a class="navbar-brand" href="#">Youtube Channel Search - Search By Channel ID</a>
 </nav>
+
+<div class="leftside_channelid">
+<iframe src="https://commentpicker.com/youtube-channel-id.php"></iframe>
+</div>
+
+
+<div class="rightside">
+<textarea name="styled-textarea" id="styled" onclick="this.focus();this.select()">Enter your comment here...</textarea>
+</div>
 <div class="container">
+
   <form class="form-inline mb-5">
     <div class="form-group col-md-8">
       <input type="text" class="form-control" style="width: 100%" [(ngModel)]="channelId" name="channelId" placeholder="Enter channel ID">
@@ -10,22 +20,14 @@
       <button class="btn btn-primary form-group" (click)="searchChannel()">Search</button>
     </div>
   </form>
+  
+  
   <div class="search-results" data-infinite-scroll debounce [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
     [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
     <div *ngFor="let video of items; let i = index">
       <app-video-item [video]="video.snippet"></app-video-item>
     </div>
   </div>
-  <go-top-button [html]="'<span>UP</span>'" [animate]="true" [speed]="50" [acceleration]="2" [scrollDistance]="300" [styles]="{
-       'border-radius': '20px 20px 20px 20px',
-       'right': '5px',
-       'color': '#2196F3',
-       'background-color': 'white',
-       'text-align': 'center',
-       'border': '2px solid',
-       'line-height': '30px'
-    }">
-  </go-top-button>
   <div class="alert alert-dismissible alert-warning" *ngIf="endPage">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h4>You have come to the end of search result!!</h4>
