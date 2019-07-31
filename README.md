@@ -1,10 +1,16 @@
 # new setup
 npm install -g @angular/cli
+
 npm i
+
 ng serve
+
 delete ng2-go-top-button html + node/module folder
+
 [node recompiles]
+
 edit src/main.ts | app/app.module.ts removing ng2-go-top-button references
+
 localhost:4200
 
 
